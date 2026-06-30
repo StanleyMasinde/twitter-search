@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#1da1f2">
+    <meta name="description"
+        content="Build advanced Twitter search queries on mobile and launch them directly in Twitter search.">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="Twitter search, advanced search, mobile search, Twitter query builder">
+    <meta property="og:site_name" content="Twitter Advanced Search">
+    <meta property="og:title" content="Twitter Advanced Search">
+    <meta property="og:description"
+        content="Build advanced Twitter search queries on mobile and launch them directly in Twitter search.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/logo.jpg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="1080">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="assets/logo.jpg">
+    <meta name="twitter:image:width" content="1080">
+    <meta name="twitter:image:height" content="1080">
+    <meta name="twitter:title" content="Twitter Advanced Search">
+    <meta name="twitter:description"
+        content="Build advanced Twitter search queries on mobile and launch them directly in Twitter search.">
+    <title>Twitter Advanced Search</title>
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="#main" aria-label="Twitter advanced search">
+                <span aria-hidden="true">t</span>
+                Twitter
+            </a>
+            <p class="eyebrow">Mobile Twitter search</p>
+            <h1>Advanced Search</h1>
+            <p class="lede">Build a precise Twitter query and launch it in the app or browser.</p>
+        </div>
+    </header>
+
+    <main class="wrap" id="main">
+        <form class="search-builder" id="search-form" action="https://twitter.com/search" method="get" target="_blank"
+            rel="noopener noreferrer">
+            <aside class="query-panel" aria-labelledby="query-heading">
+                <h2 id="query-heading">Query</h2>
+                <output id="query-output"
+                    for="all-words exact-phrase any-words none-words hashtags from-account to-account mention-account language min-replies min-likes min-retweets since-date until-date">Start
+                    typing to build a search.</output>
+            </aside>
+
+            <section aria-labelledby="keywords-heading" class="form-section">
+                <h2 id="keywords-heading">Keywords</h2>
+
+                <div class="field">
+                    <label for="all-words">All of these words</label>
+                    <input id="all-words" name="allWords" type="search" autocomplete="off"
+                        placeholder="product launch roadmap">
+                </div>
+
+                <div class="field">
+                    <label for="exact-phrase">This exact phrase</label>
+                    <input id="exact-phrase" name="exactPhrase" type="search" autocomplete="off"
+                        placeholder="open source">
+                </div>
+
+                <div class="field">
+                    <label for="any-words">Any of these words</label>
+                    <input id="any-words" name="anyWords" type="search" autocomplete="off"
+                        placeholder="ship shipped launch">
+                </div>
+
+                <div class="field">
+                    <label for="none-words">None of these words</label>
+                    <input id="none-words" name="noneWords" type="search" autocomplete="off"
+                        placeholder="hiring giveaway">
+                </div>
+
+                <div class="field">
+                    <label for="hashtags">Hashtags</label>
+                    <input id="hashtags" name="hashtags" type="text" autocomplete="off"
+                        placeholder="buildinpublic indiehackers">
+                </div>
+            </section>
+
+            <section aria-labelledby="accounts-heading" class="form-section">
+                <h2 id="accounts-heading">Accounts</h2>
+
+                <div class="field">
+                    <label for="from-account">From these accounts</label>
+                    <div class="prefix-control">
+                        <span aria-hidden="true">@</span>
+                        <input id="from-account" name="fromAccount" type="text" inputmode="text" autocomplete="off"
+                            placeholder="username anotheruser">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="to-account">Replying to these accounts</label>
+                    <div class="prefix-control">
+                        <span aria-hidden="true">@</span>
+                        <input id="to-account" name="toAccount" type="text" inputmode="text" autocomplete="off"
+                            placeholder="username anotheruser">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="mention-account">Mentioning these accounts</label>
+                    <div class="prefix-control">
+                        <span aria-hidden="true">@</span>
+                        <input id="mention-account" name="mentionAccount" type="text" inputmode="text"
+                            autocomplete="off" placeholder="username anotheruser">
+                    </div>
+                </div>
+            </section>
+
+            <section aria-labelledby="filters-heading" class="form-section">
+                <h2 id="filters-heading">Filters</h2>
+
+                <fieldset class="choice-group">
+                    <legend>Tweet type</legend>
+                    <label><input type="radio" name="tweetType" value="" checked> All tweets</label>
+                    <label><input type="radio" name="tweetType" value="filter:links"> Links only</label>
+                    <label><input type="radio" name="tweetType" value="filter:media"> Media only</label>
+                </fieldset>
+
+                <div class="switch-list">
+                    <label><input type="checkbox" name="verified"> Verified accounts</label>
+                    <label><input type="checkbox" name="hideReplies"> Hide replies</label>
+                    <label><input type="checkbox" name="hideNativeRetweets"> Hide native retweets</label>
+                </div>
+
+                <div class="field">
+                    <label for="language">Language</label>
+                    <select id="language" name="language">
+                        <option value="">Any language</option>
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="ja">Japanese</option>
+                        <option value="pt">Portuguese</option>
+                        <option value="sw">Swahili</option>
+                    </select>
+                </div>
+            </section>
+
+            <section aria-labelledby="engagement-heading" class="form-section">
+                <h2 id="engagement-heading">Engagement</h2>
+
+                <div class="field-pair">
+                    <div class="field">
+                        <label for="min-replies">Minimum replies</label>
+                        <input id="min-replies" name="minReplies" type="number" inputmode="numeric" min="0"
+                            placeholder="10">
+                    </div>
+
+                    <div class="field">
+                        <label for="min-likes">Minimum likes</label>
+                        <input id="min-likes" name="minLikes" type="number" inputmode="numeric" min="0"
+                            placeholder="100">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="min-retweets">Minimum retweets</label>
+                    <input id="min-retweets" name="minRetweets" type="number" inputmode="numeric" min="0"
+                        placeholder="25">
+                </div>
+            </section>
+
+            <section aria-labelledby="dates-heading" class="form-section">
+                <h2 id="dates-heading">Dates</h2>
+
+                <div class="field-pair">
+                    <div class="field">
+                        <label for="since-date">Since</label>
+                        <input id="since-date" name="sinceDate" type="date">
+                    </div>
+
+                    <div class="field">
+                        <label for="until-date">Until</label>
+                        <input id="until-date" name="untilDate" type="date">
+                    </div>
+                </div>
+            </section>
+
+            <div class="actions">
+                <button class="secondary" type="reset">Clear</button>
+                <button type="submit">Search Twitter</button>
+            </div>
+        </form>
+    </main>
+
+    <script src="js/app.js" defer></script>
+</body>
+
+</html>
