@@ -90,7 +90,14 @@ form.addEventListener("submit", (event) => {
   const url = new URL(form.action);
   url.searchParams.set("q", query);
   url.searchParams.set("src", "typed_query");
-  window.location.href = url.toString();
+  const searchUrl = url.toString();
+
+  const opened = window.open(searchUrl, "_blank");
+  if (opened) {
+    opened.opener = null;
+  } else {
+    window.location.href = searchUrl;
+  }
 });
 
 updatePreview();
