@@ -39,8 +39,3 @@ The form converts fields into Twitter search operators:
 - Language: adds `lang:xx`.
 - Dates: adds `since:YYYY-MM-DD` and `until:YYYY-MM-DD`.
 - Engagement: adds `min_replies`, `min_faves`, and `min_retweets`.
-
-## Notes
-
-- Social metadata points to the local `assets/logo.jpg` file. For deployment, those image URLs should usually be converted to absolute URLs.
-- The page uses modern CSS features and should still degrade cleanly in browsers that do not support every feature.
