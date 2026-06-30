@@ -13,7 +13,7 @@ A mobile-first form for building Twitter search queries on devices where the adv
 
 - `index.html`: page structure, metadata, and form markup.
 - `css/style.css`: responsive styling with custom properties, nesting, and container queries.
-- `js/app.js`: query builder and form behavior.
+- `js/app.js`: query builder and form behaviour.
 - `assets/logo.jpg`: Open Graph and Twitter share image.
 - `assets/logo.svg`: favicon.
 
