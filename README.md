@@ -13,7 +13,7 @@ A mobile-first form for building Twitter search queries on devices where the adv
 
 - `index.html`: page structure, metadata, and form markup.
 - `css/style.css`: responsive styling with custom properties, nesting, and container queries.
-- `js/app.js`: query builder and form behavior.
+- `js/app.js`: query builder and form behaviour.
 - `assets/logo.jpg`: Open Graph and Twitter share image.
 - `assets/logo.svg`: favicon.
 
@@ -39,8 +39,3 @@ The form converts fields into Twitter search operators:
 - Language: adds `lang:xx`.
 - Dates: adds `since:YYYY-MM-DD` and `until:YYYY-MM-DD`.
 - Engagement: adds `min_replies`, `min_faves`, and `min_retweets`.
-
-## Notes
-
-- Social metadata points to the local `assets/logo.jpg` file. For deployment, those image URLs should usually be converted to absolute URLs.
-- The page uses modern CSS features and should still degrade cleanly in browsers that do not support every feature.
