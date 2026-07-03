@@ -1,5 +1,7 @@
 const form = document.querySelector("#search-form");
 const output = document.querySelector("#query-output");
+const sinceDate = document.querySelector("#since-date");
+const untilDate = document.querySelector("#until-date");
 
 const normalizeWords = (value) => value.trim().split(/\s+/).filter(Boolean);
 const cleanHandle = (value) => value.trim().replace(/^@+/, "");
@@ -62,11 +64,11 @@ function buildQuery(formData) {
   const minRetweets = formData.get("minRetweets");
   if (minRetweets) parts.push(`min_retweets:${minRetweets}`);
 
-  const sinceDate = formData.get("sinceDate");
-  if (sinceDate) parts.push(`since:${sinceDate}`);
+  const sinceDateValue = formData.get("sinceDate");
+  if (sinceDateValue) parts.push(`since:${sinceDateValue}`);
 
-  const untilDate = formData.get("untilDate");
-  if (untilDate) parts.push(`until:${untilDate}`);
+  const untilDateValue = formData.get("untilDate");
+  if (untilDateValue) parts.push(`until:${untilDateValue}`);
 
   return parts.join(" ");
 }
@@ -77,8 +79,32 @@ function updatePreview() {
   output.dataset.empty = query ? "false" : "true";
 }
 
-form.addEventListener("input", updatePreview);
-form.addEventListener("reset", () => requestAnimationFrame(updatePreview));
+function syncDateConstraints(event) {
+  if (sinceDate.value && untilDate.value && sinceDate.value > untilDate.value) {
+    if (event?.target === sinceDate) {
+      untilDate.value = "";
+    } else {
+      sinceDate.value = "";
+    }
+  }
+
+  untilDate.min = sinceDate.value;
+  sinceDate.max = untilDate.value;
+}
+
+form.addEventListener("input", (event) => {
+  if (event.target === sinceDate || event.target === untilDate) {
+    syncDateConstraints(event);
+  }
+
+  updatePreview();
+});
+form.addEventListener("reset", () =>
+  requestAnimationFrame(() => {
+    syncDateConstraints();
+    updatePreview();
+  }),
+);
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const query = buildQuery(new FormData(form));
@@ -100,4 +126,5 @@ form.addEventListener("submit", (event) => {
   }
 });
 
+syncDateConstraints();
 updatePreview();
