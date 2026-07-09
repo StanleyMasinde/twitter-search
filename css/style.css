@@ -1,5 +1,5 @@
 :root {
-    color-scheme: light;
+    color-scheme: light dark;
     --bg: #e6ecf0;
     --surface: #ffffff;
     --surface-strong: #f5f8fa;
@@ -24,6 +24,24 @@
     --space-6: 1.5rem;
     --space-7: 2rem;
     --font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --bg: #0f1419;
+        --surface: #15202b;
+        --surface-strong: #1e2732;
+        --text: #f5f8fa;
+        --muted: #9aaab8;
+        --line: #2f3a45;
+        --line-strong: #425160;
+        --accent: #1d9bf0;
+        --accent-strong: #1a8cd8;
+        --accent-soft: rgb(29 155 240 / 28%);
+        --accent-faint: #102536;
+        --shadow: 0 1px 0 rgb(255 255 255 / 4%), 0 12px 28px rgb(0 0 0 / 34%);
+    }
 }
 
 * {
